@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 
 import {getSmurf} from '../store/actions/index';
+import SmurfForm from '../SmurfForm/SmurfForm';
+import Smurf from '../Smurf/Smuf';
 
 function SmurfList(props) {
   useEffect(() => {
@@ -10,8 +12,11 @@ function SmurfList(props) {
   return (
     <div>
       {props.smurfs.map(smurf => {
-        return smurf.name;
+        return <Smurf key={smurf.id} smurf={smurf} />;
       })}
+      <div className='form'>
+        <SmurfForm />
+      </div>
     </div>
   );
 }
