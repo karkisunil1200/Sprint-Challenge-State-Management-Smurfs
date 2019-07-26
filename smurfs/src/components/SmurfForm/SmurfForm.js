@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import {addSmurfs} from '../store/actions';
+import {connect} from 'react-redux';
 
-function SmurfForm() {
+function SmurfForm(props) {
   const [state, setState] = useState({
     name: '',
     age: '',
@@ -8,14 +10,24 @@ function SmurfForm() {
   });
 
   const handleChange = e => {
-    console.log(state);
     setState({
+      ...state,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const submitHandle = e => {
+    e.preventDefault();
+    props.addSmurfs(state);
+    setState({
+      name: '',
+      age: '',
+      height: ''
     });
   };
   return (
     <div>
-      <form>
+      <form onSubmit={submitHandle}>
         <div className='form-group'>
           <label>Name</label>
           <input
@@ -55,4 +67,7 @@ function SmurfForm() {
   );
 }
 
-export default SmurfForm;
+export default connect(
+  null,
+  {addSmurfs}
+)(SmurfForm);
