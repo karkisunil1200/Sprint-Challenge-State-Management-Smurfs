@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import {addSmurfs} from '../store/actions';
 import {connect} from 'react-redux';
+
+import {addSmurfs} from '../store/actions';
+import './SmurfForm.css';
 
 function SmurfForm(props) {
   const [state, setState] = useState({
@@ -26,7 +28,7 @@ function SmurfForm(props) {
     });
   };
   return (
-    <div>
+    <div className='form'>
       <form onSubmit={submitHandle}>
         <div className='form-group'>
           <label>Name</label>

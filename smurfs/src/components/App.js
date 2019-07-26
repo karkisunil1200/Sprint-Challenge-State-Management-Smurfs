@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className='App container'>
-        <h1 className='text-center'>SMURFS! 2.0 W/ Redux</h1>
+        <h1 className='text-center py-5'>Welcome to Smurf Village</h1>
         <SmurfList />
       </div>
     );
